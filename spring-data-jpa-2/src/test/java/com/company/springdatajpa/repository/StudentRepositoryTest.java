@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.sql.ResultSet;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -18,14 +19,14 @@ class StudentRepositoryTest {
     @Test
     public void saveStudent() {
         Guardian guardian = Guardian.builder()
-                .name("Aliisa")
-                .email("alisaa@gmail.com")
-                .mobile("0706754332")
+                .name("Sahib")
+                .email("sahib@gmail.com")
+                .mobile("0706754331")
                 .build();
         Student student = Student.builder()
-                .emailAddress("talibnabii@gmail.com")
-                .firstName("Talib")
-                .lastName("Nabi")
+                .emailAddress("nazmila@gmail.com")
+                .firstName("Nazmila")
+                .lastName("Nazmi")
                 .guardian(guardian)
                 .build();
         studentRepository.save(student);
@@ -88,8 +89,31 @@ class StudentRepositoryTest {
 
     @Test
     public void printStudentByEmailAddress() {
-        Student student=studentRepository
+        Student student = studentRepository
                 .getStudentByEmailAddress("talibnabii@gmail.com");
+        System.out.println(student);
+    }
+
+    @Test
+    public void printStudentByEmailAddress2() {
+        Student student = studentRepository
+                .getStudentByEmailAddress("nazmila@gmail.com");
+        System.out.println(student);
+    }
+
+
+    @Test
+    public void printStudentFirstNameByEmailAddress() {
+        String studentFirstName = studentRepository
+                .getStudentFirstNameByEmailAddress("talibnabii@gmail.com");
+        System.out.println(studentFirstName);
+    }
+
+    @Test
+    public void printStudentByEmailAddressNative() {
+        Student student =
+                studentRepository
+                        .getStudentByEmailAddressNative("nazmila@gmail.com");
         System.out.println(student);
     }
 }
