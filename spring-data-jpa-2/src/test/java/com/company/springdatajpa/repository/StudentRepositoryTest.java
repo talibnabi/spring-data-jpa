@@ -63,4 +63,18 @@ class StudentRepositoryTest {
                 studentRepository.findByFirstNameContaining("Ta");
         studentList.forEach(System.out::println);
     }
+
+    @Test
+    public void printStudentBasedOnGuardianName() {
+        List<Student> studentList =
+                studentRepository.findByGuardianName("Aliisa");
+        studentList.forEach(System.out::println);
+    }
+
+    @Test
+    public void printStudentLastNameNotNull() {
+        List<Student> studentList =
+                studentRepository.findByLastNameNotNull();
+        studentList.forEach(System.out::println);
+    }
 }
