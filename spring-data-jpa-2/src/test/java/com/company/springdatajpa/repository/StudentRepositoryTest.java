@@ -23,7 +23,7 @@ class StudentRepositoryTest {
                 .mobile("0706754332")
                 .build();
         Student student = Student.builder()
-                .emailId("talibnabii@gmail.com")
+                .emailAddress("talibnabii@gmail.com")
                 .firstName("Talib")
                 .lastName("Nabi")
                 .guardian(guardian)
@@ -83,6 +83,13 @@ class StudentRepositoryTest {
         Student student =
                 studentRepository.
                         findByFirstNameAndLastName("Talib", "Nabi");
+        System.out.println(student);
+    }
+
+    @Test
+    public void printStudentByEmailAddress() {
+        Student student=studentRepository
+                .getStudentByEmailAddress("talibnabii@gmail.com");
         System.out.println(student);
     }
 }

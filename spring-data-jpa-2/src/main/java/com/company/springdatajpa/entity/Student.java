@@ -35,7 +35,7 @@ public class Student {
     private String lastName;
 
     @Column(name = "email_address", nullable = false)
-    private String emailId;
+    private String emailAddress;
 
     @Embedded
     private Guardian guardian;
