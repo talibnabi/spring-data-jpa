@@ -77,4 +77,12 @@ class StudentRepositoryTest {
                 studentRepository.findByLastNameNotNull();
         studentList.forEach(System.out::println);
     }
+
+    @Test
+    public void printStudentFirstNameAndLastName() {
+        Student student =
+                studentRepository.
+                        findByFirstNameAndLastName("Talib", "Nabi");
+        System.out.println(student);
+    }
 }
