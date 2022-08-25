@@ -17,7 +17,7 @@ class StudentRepositoryTest {
 
     @Test
     public void saveStudent() {
-        Guardian guardian=Guardian.builder()
+        Guardian guardian = Guardian.builder()
                 .name("Aliisa")
                 .email("alisaa@gmail.com")
                 .mobile("0706754332")
@@ -33,12 +33,12 @@ class StudentRepositoryTest {
 
     @Test
     public void saveStudentGuardianDetails() {
-        Guardian guardian=Guardian.builder()
+        Guardian guardian = Guardian.builder()
                 .name("Aliisa")
                 .email("alisaa@gmail.com")
                 .mobile("0706754332")
                 .build();
-        Student student=Student.builder()
+        Student student = Student.builder()
                 .guardian(guardian)
                 .build();
         studentRepository.save(student);
@@ -47,6 +47,20 @@ class StudentRepositoryTest {
     @Test
     public void printAllStudent() {
         List<Student> studentList = studentRepository.findAll();
+        studentList.forEach(System.out::println);
+    }
+
+    @Test
+    public void printStudentsByFirstName() {
+        List<Student> studentList =
+                studentRepository.findByFirstName("Talib");
+        studentList.forEach(System.out::println);
+    }
+
+    @Test
+    public void printStudentByFirstNameContaining() {
+        List<Student> studentList =
+                studentRepository.findByFirstNameContaining("Ta");
         studentList.forEach(System.out::println);
     }
 }
