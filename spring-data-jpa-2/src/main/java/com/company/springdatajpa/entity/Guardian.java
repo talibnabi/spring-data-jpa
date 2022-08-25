@@ -1,6 +1,7 @@
 package com.company.springdatajpa.entity;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -14,6 +15,7 @@ import javax.persistence.Embeddable;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 @AttributeOverrides({
         @AttributeOverride(
                 name = "name",
