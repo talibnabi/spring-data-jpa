@@ -140,9 +140,16 @@ class StudentRepositoryTest {
     }
 
     @Test
+    public void updateStudentLastNameByFirstNameParam() {
+        int student = studentRepository
+                .updateStudentLastNameByFirstNameParam("Sama", "Nazmilaaaa");
+        System.out.println(student);
+    }
+
+    @Test
     public void updateStudentLastNameByFirstName() {
         int student = studentRepository
-                .updateStudentLastNameByFirstName("Samiraldo", "Nazmilaaaa");
+                .updateStudentLastNameByFirstName("Sama", "Nazmilaaaa");
         System.out.println(student);
     }
 }

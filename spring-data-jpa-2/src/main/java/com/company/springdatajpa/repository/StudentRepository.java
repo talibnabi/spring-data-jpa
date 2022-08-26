@@ -62,6 +62,11 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
 
     @Modifying
     @Transactional
-    @Query("update Student s set s.lastName=?1 where s.firstName=?2")
+    @Query("update Student s set s.lastName=?1 where s.firstName= ?2")
     int updateStudentLastNameByFirstName(String lastName, String firstName);
+
+    @Modifying
+    @Transactional
+    @Query("update Student s set s.lastName= :lastname where s.firstName= :firstname")
+    int updateStudentLastNameByFirstNameParam(@Param("lastname") String lastName, @Param("firstname") String firstName);
 }
