@@ -124,4 +124,17 @@ class StudentRepositoryTest {
                 .getStudentByEmailAddressNativeNamedParam("nazmila@gmail.com");
         System.out.println(student);
     }
+
+    @Test
+    public void updateStudentNameByEmailAddressNamedParam() {
+        int student = studentRepository.updateStudentNameByEmailAddressNamedParam(
+                "Nazmila", "nazmila@gmail.com");
+        System.out.println(student);
+    }
+    @Test
+    public void updateStudentNameByEmailAddress() {
+        int student = studentRepository.updateStudentNameByEmailAddress(
+                "Nazmilaaaa", "nazmila@gmail.com");
+        System.out.println(student);
+    }
 }
