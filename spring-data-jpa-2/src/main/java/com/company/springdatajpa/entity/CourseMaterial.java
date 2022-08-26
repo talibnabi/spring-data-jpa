@@ -9,7 +9,6 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@ToString(exclude = "course")
 public class CourseMaterial {
     @SequenceGenerator(
             name = "course_material_sequence",
@@ -26,11 +25,21 @@ public class CourseMaterial {
 
     @OneToOne(
             cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY
+            fetch = FetchType.LAZY,
+            optional = false
     )
     @JoinColumn(
             name = "course_id",
             referencedColumnName = "courseId"
     )
     private Course course;
+
+    @Override
+    public String toString() {
+        return "CourseMaterial{" +
+                "courseMaterialId=" + courseMaterialId +
+                ", url='" + url + '\'' +
+                ", course_id=" + course.getCourseId() +
+                '}';
+    }
 }
