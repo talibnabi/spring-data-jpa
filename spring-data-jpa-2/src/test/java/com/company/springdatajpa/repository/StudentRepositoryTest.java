@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.rmi.StubNotFoundException;
 import java.sql.ResultSet;
 import java.util.List;
 
@@ -114,6 +115,13 @@ class StudentRepositoryTest {
         Student student =
                 studentRepository
                         .getStudentByEmailAddressNative("nazmila@gmail.com");
+        System.out.println(student);
+    }
+
+    @Test
+    public void printStudentByEmailAddressNativeNamedParam() {
+        Student student = studentRepository
+                .getStudentByEmailAddressNativeNamedParam("nazmila@gmail.com");
         System.out.println(student);
     }
 }
