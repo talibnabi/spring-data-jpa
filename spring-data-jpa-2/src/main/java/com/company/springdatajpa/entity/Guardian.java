@@ -19,15 +19,15 @@ import javax.persistence.Embeddable;
 @AttributeOverrides({
         @AttributeOverride(
                 name = "name",
-                column = @Column(name = "guardian_name")
+                column = @Column(name = "guardian_name",nullable = false)
         ),
         @AttributeOverride(
                 name = "email",
-                column = @Column(name = "guardian_email")
+                column = @Column(name = "guardian_email",nullable = false)
         ),
         @AttributeOverride(
                 name = "mobile",
-                column = @Column(name = "guardian_mobile_number")
+                column = @Column(name = "guardian_mobile_number",nullable = false)
         )
 })
 public class Guardian {

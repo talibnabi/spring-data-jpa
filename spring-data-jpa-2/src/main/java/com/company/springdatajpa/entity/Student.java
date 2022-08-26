@@ -16,7 +16,7 @@ import javax.persistence.*;
         name = "tbl_student",
         uniqueConstraints = @UniqueConstraint(
                 name = "email_id_unique_constraint",
-                columnNames = "email_address"
+                columnNames = "student_email_address"
         )
 )
 public class Student {
@@ -31,10 +31,14 @@ public class Student {
             generator = "student_sequence"
     )
     private Long student_id;
+
+    @Column(name = "student_name", nullable = false)
     private String firstName;
+
+    @Column(name = "student_surname", nullable = false)
     private String lastName;
 
-    @Column(name = "email_address", nullable = false)
+    @Column(name = "student_email_address", nullable = false)
     private String emailAddress;
 
     @Embedded
