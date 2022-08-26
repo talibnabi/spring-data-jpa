@@ -131,10 +131,18 @@ class StudentRepositoryTest {
                 "Nazmila", "nazmila@gmail.com");
         System.out.println(student);
     }
+
     @Test
     public void updateStudentNameByEmailAddress() {
         int student = studentRepository.updateStudentNameByEmailAddress(
                 "Nazmilaaaa", "nazmila@gmail.com");
+        System.out.println(student);
+    }
+
+    @Test
+    public void updateStudentLastNameByFirstName() {
+        int student = studentRepository
+                .updateStudentLastNameByFirstName("Samiraldo", "Nazmilaaaa");
         System.out.println(student);
     }
 }
