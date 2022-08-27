@@ -8,6 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 
 import java.util.List;
 
@@ -43,12 +44,21 @@ class CourseRepositoryTest {
     public void findAllPagination() {
         Pageable firstPageWithThreeRecords = PageRequest.of(0, 3);
         Pageable secondPageWithTwoRecords = PageRequest.of(1, 2);
-        List<Course> courses = courseRepository.findAll(firstPageWithThreeRecords).getContent();
-        Long totalElements = courseRepository.findAll(firstPageWithThreeRecords).getTotalElements();
-        Integer totalPages = courseRepository.findAll(firstPageWithThreeRecords).getTotalPages();
+        List<Course> courses = courseRepository.findAll(secondPageWithTwoRecords).getContent();
+        Long totalElements = courseRepository.findAll(secondPageWithTwoRecords).getTotalElements();
+        Integer totalPages = courseRepository.findAll(secondPageWithTwoRecords).getTotalPages();
         System.out.println(courses);
         System.out.println(totalPages);
         System.out.println(totalElements);
 
+    }
+
+    @Test
+    public void findAllSorting() {
+        Pageable sortByTitle = PageRequest.of(0, 3, Sort.by("title"));
+        Pageable sortedByCreditDesc = PageRequest.of(0, 3, Sort.by("credit").descending());
+        Pageable sortedByTitleAndCreditDescp = PageRequest.of(0, 2, Sort.by("title").descending().and(Sort.by("credit")));
+        List<Course> courses = courseRepository.findAll(sortByTitle).getContent();
+        courses.forEach(System.out::println);
     }
 }
