@@ -9,6 +9,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@Table(name = "tbl_course_material")
 public class CourseMaterial {
     @SequenceGenerator(
             name = "course_material_sequence",
