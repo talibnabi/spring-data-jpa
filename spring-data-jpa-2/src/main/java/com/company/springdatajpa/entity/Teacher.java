@@ -14,7 +14,6 @@ import java.util.List;
 @Entity
 @Data
 @Builder
-@Table(name = "tbl_teacher")
 public class Teacher {
     @SequenceGenerator(
             name = "teacher_sequence",

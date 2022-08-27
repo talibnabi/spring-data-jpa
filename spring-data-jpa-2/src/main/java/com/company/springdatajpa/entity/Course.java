@@ -12,7 +12,6 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Table(name = "tbl_course")
 public class Course {
     @SequenceGenerator(
             name = "course_sequence",
