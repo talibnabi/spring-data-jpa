@@ -16,17 +16,9 @@ class BillRepositoryTest {
 
     @Test
     public void saveBill() {
-        InPatient inPatient = InPatient.builder()
-                .dateOfAdm(LocalDateTime.of(2001, 12, 1, 2, 3))
-                .dateOfDis(LocalDateTime.of(2002, 12, 1, 2, 3))
-                .build();
-        OutPatient outPatient = OutPatient.builder()
-                .outDate(LocalDateTime.of(2003, 12, 1, 2, 3))
-                .build();
+
         Laboratory laboratory = Laboratory.builder()
                 .labDate(LocalDateTime.of(2001, 12, 1, 2, 3))
-                .inPatient(inPatient)
-                .outPatient(outPatient)
                 .build();
         Nurse nurse = Nurse.builder()
                 .nurseFirstName("Anjelina")
