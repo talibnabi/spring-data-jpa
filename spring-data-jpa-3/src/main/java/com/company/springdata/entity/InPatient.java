@@ -28,13 +28,31 @@ public class InPatient {
     @Column(name = "in_patient_id")
     private Long inPatientId;
 
-    @Column(name = "room_no", nullable = false)
-    private Integer roomNo;
-
     @Column(name = "date_of_adm", nullable = false)
     private LocalDateTime dateOfAdm;
 
     @Column(name = "date_of_dis", nullable = false)
     private LocalDateTime dateOfDis;
 
+    @OneToOne(
+            cascade = CascadeType.ALL,
+            fetch = FetchType.EAGER,
+            optional = false
+    )
+    @JoinColumn(
+            name = "room_id",
+            referencedColumnName = "roomId"
+    )
+    private Room room;
+
+    @OneToOne(
+            cascade = CascadeType.ALL,
+            fetch = FetchType.EAGER,
+            optional = false
+    )
+    @JoinColumn(
+            name = "laboratory_id",
+            referencedColumnName = "laboratoryId"
+    )
+    private Laboratory laboratory;
 }

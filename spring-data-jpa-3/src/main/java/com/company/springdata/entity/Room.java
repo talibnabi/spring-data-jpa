@@ -33,4 +33,9 @@ public class Room {
 
     @Column(name = "status", nullable = false)
     private String status;
+
+    @OneToOne(
+            mappedBy = "room"
+    )
+    private InPatient inPatient;
 }
