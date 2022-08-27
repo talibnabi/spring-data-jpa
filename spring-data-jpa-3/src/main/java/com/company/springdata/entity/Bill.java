@@ -17,6 +17,5 @@ public class Bill {
     private Long billId;
     private Integer doctorCharge;
     private Integer roomCharge;
-    private Integer labCharge;
     private Integer dayCount;
 }

@@ -14,4 +14,7 @@ import javax.persistence.Entity;
 @Data
 @Builder
 public class Room {
+    private Long roomId;
+    private String roomType;
+    private String status;
 }
