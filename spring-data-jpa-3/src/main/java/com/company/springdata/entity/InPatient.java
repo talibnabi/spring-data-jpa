@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
+import java.time.LocalDateTime;
 
 @Entity
 @AllArgsConstructor
@@ -13,5 +14,9 @@ import javax.persistence.Entity;
 @Data
 @Builder
 public class InPatient {
-    
+    private Long inPatientId;
+    private Integer roomNo;
+    private LocalDateTime dateOfAdm;
+    private LocalDateTime dateOfDis;
+
 }
