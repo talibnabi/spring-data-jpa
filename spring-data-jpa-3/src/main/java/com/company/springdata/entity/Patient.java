@@ -84,4 +84,15 @@ public class Patient {
             mappedBy = "patient"
     )
     private Bill bill;
+
+    @ManyToOne(
+            cascade = CascadeType.ALL,
+            fetch = FetchType.EAGER,
+            optional = false
+    )
+    @JoinColumn(
+            name = "laboratory_id",
+            referencedColumnName = "laboratoryId"
+    )
+    private Laboratory laboratory;
 }
