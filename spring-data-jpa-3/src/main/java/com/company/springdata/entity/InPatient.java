@@ -5,7 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
@@ -13,10 +13,28 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Data
 @Builder
+@Table(name = "tbl_in_patient")
 public class InPatient {
+    @SequenceGenerator(
+            name = "in_patient_sequence",
+            sequenceName = "in_patient_sequence",
+            allocationSize = 1
+    )
+    @Id
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "in_patient_sequence"
+    )
+    @Column(name = "in_patient_id")
     private Long inPatientId;
+
+    @Column(name = "room_no", nullable = false)
     private Integer roomNo;
+
+    @Column(name = "date_of_adm", nullable = false)
     private LocalDateTime dateOfAdm;
+
+    @Column(name = "date_of_dis", nullable = false)
     private LocalDateTime dateOfDis;
 
 }

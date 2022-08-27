@@ -13,7 +13,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Data
 @Builder
-
+@Table(name = "tbl_bill")
 public class Bill {
     @SequenceGenerator(
             name = "bill_sequence",
