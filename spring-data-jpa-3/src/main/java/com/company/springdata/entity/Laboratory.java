@@ -13,6 +13,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Data
 @Builder
+@Table(name = "tbl_laboratory")
 public class Laboratory {
     @SequenceGenerator(
             name = "laboratory_sequence",
