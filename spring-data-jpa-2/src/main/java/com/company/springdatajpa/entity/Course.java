@@ -37,8 +37,12 @@ public class Course {
     @JoinTable(
             name = "student_course_mapping",
             joinColumns = @JoinColumn(
-                    name = "",
-                    referencedColumnName = ""
+                    name = "course_id",
+                    referencedColumnName = "courseId"
+            ),
+            inverseJoinColumns = @JoinColumn(
+                    name = "studentId",
+                    referencedColumnName = "studentId"
             )
     )
     private List<Student> students;
