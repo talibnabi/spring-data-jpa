@@ -34,6 +34,9 @@ public class Bill {
     @Column(name = "room_charge", nullable = false)
     private Integer roomCharge;
 
+    @Column(name = "lab_charge", nullable = false)
+    private Integer labCharge;
+
     @Column(name = "day_count", nullable = false)
     private Integer dayCount;
 
@@ -48,14 +51,4 @@ public class Bill {
     )
     private Patient patient;
 
-    @OneToOne(
-            cascade = CascadeType.ALL,
-            fetch = FetchType.EAGER,
-            optional = false
-    )
-    @JoinColumn(
-            name = "laboratory_id",
-            referencedColumnName = "laboratory_id"
-    )
-    private Laboratory laboratory;
 }

@@ -35,11 +35,6 @@ public class Laboratory {
     @OneToOne(
             mappedBy = "laboratory"
     )
-    private Bill bill;
-
-    @OneToOne(
-            mappedBy = "laboratory"
-    )
     private InPatient inPatient;
 
     @OneToOne(
