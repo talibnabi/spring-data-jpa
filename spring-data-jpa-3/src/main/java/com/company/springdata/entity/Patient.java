@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 
@@ -15,10 +16,16 @@ import javax.persistence.*;
 @Builder
 @Table(
         name = "tbl_patient",
-        uniqueConstraints = @UniqueConstraint(
-                name = "email_id_unique_constraint",
-                columnNames = "patient_email_address"
-        )
+        uniqueConstraints = {
+                @UniqueConstraint(
+                        name = "patient_email_id_unique_constraint",
+                        columnNames = "patient_email_address"
+                ),
+                @UniqueConstraint(
+                        name = "nurse_email_id_unique_constraint",
+                        columnNames = "nurse_mail_address"
+                )
+        }
 )
 public class Patient {
     @SequenceGenerator(
@@ -51,4 +58,7 @@ public class Patient {
 
     @Column(name = "patient_email_address", nullable = false)
     private String email;
+
+    @Embedded
+    private Nurse nurse;
 }
