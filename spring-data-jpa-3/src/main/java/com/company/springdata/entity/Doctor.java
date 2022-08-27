@@ -51,4 +51,5 @@ public class Doctor {
 
     @Column(name = "doctor_email_address", nullable = false)
     private String email;
+
 }

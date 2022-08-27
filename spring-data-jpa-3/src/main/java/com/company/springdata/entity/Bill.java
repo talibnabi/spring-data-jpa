@@ -34,6 +34,28 @@ public class Bill {
     @Column(name = "room_charge", nullable = false)
     private Integer roomCharge;
 
-    @Column(name = "day_count",nullable = false)
+    @Column(name = "day_count", nullable = false)
     private Integer dayCount;
+
+    @OneToOne(
+            cascade = CascadeType.ALL,
+            fetch = FetchType.EAGER,
+            optional = false
+    )
+    @JoinColumn(
+            name = "patient_id",
+            referencedColumnName = "patientId"
+    )
+    private Patient patient;
+
+    @OneToOne(
+            cascade = CascadeType.ALL,
+            fetch = FetchType.EAGER,
+            optional = false
+    )
+    @JoinColumn(
+            name = "laboratory_id",
+            referencedColumnName = "laboratoryId"
+    )
+    private Laboratory laboratory;
 }

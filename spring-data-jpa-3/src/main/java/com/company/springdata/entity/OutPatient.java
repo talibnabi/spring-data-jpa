@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Data
 @Builder
-@Table(name = "out_patient")
+@Table(name = "tbl_out_patient")
 public class OutPatient {
     @SequenceGenerator(
             name = "out_patient_sequence",

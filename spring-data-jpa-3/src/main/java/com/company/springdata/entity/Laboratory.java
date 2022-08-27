@@ -30,4 +30,9 @@ public class Laboratory {
 
     @Column(name = "lab_date", nullable = false)
     private LocalDateTime labDate;
+
+    @OneToOne(
+            mappedBy = "laboratory"
+    )
+    private Bill bill;
 }

@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @NoArgsConstructor
@@ -61,4 +62,26 @@ public class Patient {
 
     @Embedded
     private Nurse nurse;
+
+    @ManyToMany(
+            cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY
+    )
+    @JoinTable(
+            name = "patient_doctor_mapping",
+            joinColumns = @JoinColumn(
+                    name = "patient_id",
+                    referencedColumnName = "patientId"
+            ),
+            inverseJoinColumns = @JoinColumn(
+                    name = "doctor_id",
+                    referencedColumnName = "doctorId"
+            )
+    )
+    private List<Doctor> doctors;
+
+    @OneToOne(
+            mappedBy = "patient"
+    )
+    private Bill bill;
 }
