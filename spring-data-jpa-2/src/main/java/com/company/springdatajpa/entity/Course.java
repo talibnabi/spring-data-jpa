@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Data
@@ -31,6 +32,16 @@ public class Course {
             mappedBy = "course"
     )
     private CourseMaterial courseMaterial;
+
+    @ManyToMany
+    @JoinTable(
+            name = "student_course_mapping",
+            joinColumns = @JoinColumn(
+                    name = "",
+                    referencedColumnName = ""
+            )
+    )
+    private List<Student> students;
 
 //    @ManyToOne(
 //            cascade = CascadeType.ALL,
