@@ -61,4 +61,11 @@ class CourseRepositoryTest {
         List<Course> courses = courseRepository.findAll(sortByTitle).getContent();
         courses.forEach(System.out::println);
     }
+
+    @Test
+    public void printFindByContaining() {
+        Pageable firstPageTenRecords = PageRequest.of(0, 10);
+        List<Course> courses = courseRepository.findByTitleContaining("J", firstPageTenRecords);
+        courses.forEach(System.out::println);
+    }
 }
