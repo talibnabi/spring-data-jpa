@@ -42,6 +42,11 @@ public class Laboratory {
     )
     private InPatient inPatient;
 
+    @OneToOne(
+            mappedBy = "laboratory"
+    )
+    private OutPatient outPatient;
+
     @ManyToMany(
             cascade = CascadeType.ALL,
             fetch = FetchType.LAZY
@@ -50,23 +55,23 @@ public class Laboratory {
             name = "laboratory_doctor_mapping",
             joinColumns = @JoinColumn(
                     name = "laboratory_id",
-                    referencedColumnName = "laboratoryId"
+                    referencedColumnName = "laboratory_id"
             ),
             inverseJoinColumns = @JoinColumn(
                     name = "doctor_id",
-                    referencedColumnName = "doctorId"
+                    referencedColumnName = "doctor_id"
             )
     )
     private List<Doctor> doctors;
 
 
-    @OneToMany(
-            cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY
-    )
-    @JoinColumn(
-            name = "laboratory_id",
-            referencedColumnName = "laboratoryId"
-    )
-    private List<Patient> patients;
+//    @OneToMany(
+//            cascade = CascadeType.ALL,
+//            fetch = FetchType.LAZY
+//    )
+//    @JoinColumn(
+//            name = "laboratory_id",
+//            referencedColumnName = "laboratoryId"
+//    )
+//    private List<Patient> patients;
 }

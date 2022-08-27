@@ -41,7 +41,7 @@ public class InPatient {
     )
     @JoinColumn(
             name = "room_id",
-            referencedColumnName = "roomId"
+            referencedColumnName = "room_id"
     )
     private Room room;
 
@@ -52,7 +52,7 @@ public class InPatient {
     )
     @JoinColumn(
             name = "laboratory_id",
-            referencedColumnName = "laboratoryId"
+            referencedColumnName = "laboratory_id"
     )
     private Laboratory laboratory;
 }

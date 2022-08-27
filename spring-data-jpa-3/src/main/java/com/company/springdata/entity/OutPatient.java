@@ -32,4 +32,14 @@ public class OutPatient {
     @Column(name = "out_date", nullable = false)
     private LocalDateTime outDate;
 
+    @OneToOne(
+            cascade = CascadeType.ALL,
+            fetch = FetchType.EAGER,
+            optional = false
+    )
+    @JoinColumn(
+            name = "laboratory_id",
+            referencedColumnName = "laboratory_id"
+    )
+    private Laboratory laboratory;
 }

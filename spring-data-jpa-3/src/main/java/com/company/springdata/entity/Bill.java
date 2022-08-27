@@ -44,7 +44,7 @@ public class Bill {
     )
     @JoinColumn(
             name = "patient_id",
-            referencedColumnName = "patientId"
+            referencedColumnName = "patient_id"
     )
     private Patient patient;
 
@@ -55,7 +55,7 @@ public class Bill {
     )
     @JoinColumn(
             name = "laboratory_id",
-            referencedColumnName = "laboratoryId"
+            referencedColumnName = "laboratory_id"
     )
     private Laboratory laboratory;
 }

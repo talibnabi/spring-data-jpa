@@ -71,11 +71,11 @@ public class Patient {
             name = "patient_doctor_mapping",
             joinColumns = @JoinColumn(
                     name = "patient_id",
-                    referencedColumnName = "patientId"
+                    referencedColumnName = "patient_id"
             ),
             inverseJoinColumns = @JoinColumn(
                     name = "doctor_id",
-                    referencedColumnName = "doctorId"
+                    referencedColumnName = "doctor_id"
             )
     )
     private List<Doctor> doctors;
@@ -92,7 +92,7 @@ public class Patient {
     )
     @JoinColumn(
             name = "laboratory_id",
-            referencedColumnName = "laboratoryId"
+            referencedColumnName = "laboratory_id"
     )
     private Laboratory laboratory;
 }
