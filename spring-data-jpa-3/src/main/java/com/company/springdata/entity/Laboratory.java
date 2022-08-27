@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @AllArgsConstructor
@@ -41,5 +42,31 @@ public class Laboratory {
     )
     private InPatient inPatient;
 
+    @ManyToMany(
+            cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY
+    )
+    @JoinTable(
+            name = "laboratory_doctor_mapping",
+            joinColumns = @JoinColumn(
+                    name = "laboratory_id",
+                    referencedColumnName = "laboratoryId"
+            ),
+            inverseJoinColumns = @JoinColumn(
+                    name = "doctor_id",
+                    referencedColumnName = "doctorId"
+            )
+    )
+    private List<Doctor> doctors;
 
+
+    @OneToMany(
+            cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY
+    )
+    @JoinColumn(
+            name = "laboratory_id",
+            referencedColumnName = "laboratoryId"
+    )
+    private List<Patient> patients;
 }
