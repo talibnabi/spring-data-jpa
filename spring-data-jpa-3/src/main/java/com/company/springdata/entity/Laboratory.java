@@ -16,5 +16,4 @@ import java.time.LocalDateTime;
 public class Laboratory {
     private Long laboratoryId;
     private LocalDateTime labDate;
-    private Integer labAmount;
 }
