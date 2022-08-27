@@ -1,11 +1,12 @@
 package com.company.springdatajpa.repository;
 
 import com.company.springdatajpa.entity.Course;
+import com.company.springdatajpa.entity.Guardian;
+import com.company.springdatajpa.entity.Student;
 import com.company.springdatajpa.entity.Teacher;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -67,5 +68,32 @@ class CourseRepositoryTest {
         PageRequest firstPageTenRecords = PageRequest.of(0, 10);
         List<Course> courses = courseRepository.findByTitleContaining("j", firstPageTenRecords).getContent();
         courses.forEach(System.out::println);
+    }
+
+    @Test
+    public void saveCourseWithStudentAndTeacher() {
+
+        Teacher teacher = Teacher.builder()
+                .firstName("Alisa")
+                .lastName("Aslan")
+                .build();
+        Course course = Course.builder()
+                .title("AI")
+                .credit(10)
+                .teacher(teacher)
+                .build();
+        Guardian guardian=Guardian.builder()
+                .name("Hikmat")
+                .mobile("0709842345")
+                .email("hikma@gmail.com")
+                .build();
+        Student student = Student.builder()
+                .firstName("Salman")
+                .lastName("Abishov")
+                .guardian(guardian)
+                .emailAddress("salman@gmail.com")
+                .build();
+        course.addStudents(student);
+        courseRepository.save(course);
     }
 }

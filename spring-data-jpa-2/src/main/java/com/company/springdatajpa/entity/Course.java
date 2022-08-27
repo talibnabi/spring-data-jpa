@@ -34,7 +34,9 @@ public class Course {
     )
     private CourseMaterial courseMaterial;
 
-    @ManyToMany
+    @ManyToMany(
+            cascade = CascadeType.ALL
+    )
     @JoinTable(
             name = "student_course_mapping",
             joinColumns = @JoinColumn(
@@ -55,14 +57,14 @@ public class Course {
         students.add(student);
     }
 
-//    @ManyToOne(
-//            cascade = CascadeType.ALL,
-//            fetch = FetchType.LAZY,
-//            optional = false
-//    )
-//    @JoinColumn(
-//            name = "teacher_id",
-//            referencedColumnName = "teacherId"
-//    )
-//    private Teacher teacher;
+    @ManyToOne(
+            cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY,
+            optional = false
+    )
+    @JoinColumn(
+            name = "teacher_id",
+            referencedColumnName = "teacherId"
+    )
+    private Teacher teacher;
 }
