@@ -61,5 +61,11 @@ class BillRepositoryTest {
         bill1.forEach(System.out::println);
     }
 
+    @Test
+    public void getBillByBillIdAndRoomCharge() {
+        Bill bill=billRepository.getBillByBillIdAndRoomCharge(10,2500);
+        System.out.println(bill);
+    }
+
 
 }
