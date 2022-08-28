@@ -52,5 +52,14 @@ public interface BillRepository extends JpaRepository<Bill, Long> {
             nativeQuery = true
     )
     int updateBillDoctorChargeByRoomCharge(Integer roomCharge);
-    
+
+    @Modifying
+    @Transactional
+    @Query(
+            value = "delete from Bill b where b.room_charge = :roomCharge",
+            nativeQuery = true
+    )
+    void deleteBillsByRoomCharge(
+            @Param("roomCharge") Integer roomCharge
+    );
 }

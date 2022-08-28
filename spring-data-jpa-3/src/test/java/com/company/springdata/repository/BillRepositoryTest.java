@@ -4,9 +4,6 @@ import com.company.springdata.entity.*;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-
-import javax.persistence.criteria.CriteriaBuilder;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @SpringBootTest
