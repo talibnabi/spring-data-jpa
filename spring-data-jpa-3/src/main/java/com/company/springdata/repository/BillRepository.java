@@ -52,4 +52,5 @@ public interface BillRepository extends JpaRepository<Bill, Long> {
             nativeQuery = true
     )
     int updateBillDoctorChargeByRoomCharge(Integer roomCharge);
+    
 }
