@@ -51,15 +51,15 @@ public interface BillRepository extends JpaRepository<Bill, Long> {
             value = "update tbl_bill set doctor_charge=?1 where room_charge=?2",
             nativeQuery = true
     )
-    int updateBillDoctorChargeByRoomCharge(Integer roomCharge);
+    int updateBillDoctorChargeByRoomCharge(Integer doctorCharge,Integer roomCharge);
 
-    @Modifying
-    @Transactional
-    @Query(
-            value = "delete from Bill b where b.room_charge = :roomCharge",
-            nativeQuery = true
-    )
-    void deleteBillsByRoomCharge(
-            @Param("roomCharge") Integer roomCharge
-    );
+//    @Modifying
+//    @Transactional
+//    @Query(
+//            value = "delete from Bill b where b.room_charge = :roomCharge",
+//            nativeQuery = true
+//    )
+//    void deleteBillsByRoomCharge(
+//            @Param("roomCharge") Integer roomCharge
+//    );
 }

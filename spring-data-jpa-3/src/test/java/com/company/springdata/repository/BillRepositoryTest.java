@@ -63,9 +63,20 @@ class BillRepositoryTest {
 
     @Test
     public void getBillByBillIdAndRoomCharge() {
-        Bill bill=billRepository.getBillByBillIdAndRoomCharge(10,2500);
+        Bill bill = billRepository.getBillByBillIdAndRoomCharge(10, 2500);
         System.out.println(bill);
     }
+
+    //    @Test
+//    public void deleteBillsByRoomCharge() {
+//        billRepository.deleteBillsByRoomCharge(1000);
+//    }
+    @Test
+    public void updateBillDoctorChargeByRoomCharge() {
+        int i = billRepository.updateBillDoctorChargeByRoomCharge(3000, 1000);
+        System.out.println(i);
+    }
+
 
 
 }
