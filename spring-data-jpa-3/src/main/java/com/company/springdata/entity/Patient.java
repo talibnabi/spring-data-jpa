@@ -5,7 +5,10 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Proxy;
+import org.springframework.transaction.annotation.Transactional;
 
+import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.*;
 import java.util.List;
 
@@ -77,6 +80,7 @@ public class Patient {
                     referencedColumnName = "doctor_id"
             )
     )
+    @JsonbTransient
     private List<Doctor> doctors;
 
     @OneToOne(
