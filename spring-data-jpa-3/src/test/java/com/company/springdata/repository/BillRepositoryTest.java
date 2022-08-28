@@ -57,7 +57,6 @@ class BillRepositoryTest {
 
     @Test
     public void getBillByDayCountAndDoctorCharge() {
-        Bill bill = Bill.builder().build();
         List<Bill> bill1 = billRepository.getBillByDayCountAndDoctorCharge(9, 4000);
         bill1.forEach(System.out::println);
     }

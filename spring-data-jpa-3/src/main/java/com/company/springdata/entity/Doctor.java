@@ -53,8 +53,10 @@ public class Doctor {
     @Column(name = "doctor_email_address", nullable = false)
     private String email;
 
-    @ManyToMany(fetch = FetchType.LAZY,
+    @ManyToMany(
+            fetch = FetchType.LAZY,
             cascade = CascadeType.ALL,
-            mappedBy = "doctors")
+            mappedBy = "doctors"
+    )
     private List<Patient> patients;
 }
