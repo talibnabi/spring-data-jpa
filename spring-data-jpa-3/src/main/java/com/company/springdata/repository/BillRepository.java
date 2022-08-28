@@ -16,7 +16,7 @@ public interface BillRepository extends JpaRepository<Bill, Long> {
     //TODO: JPQL
 
     @Query("select b from Bill b where b.dayCount=?1 and b.doctorCharge=?2")
-    Bill getBillByDayCountAndDoctorCharge(Integer dayCount, Integer doctorCharge);
+    List<Bill> getBillByDayCountAndDoctorCharge(Integer dayCount, Integer doctorCharge);
 
     @Query("select b.dayCount from Bill b where b.doctorCharge=?1")
     List<Bill> getDayCountByDoctorCharge(Integer doctorCharge);

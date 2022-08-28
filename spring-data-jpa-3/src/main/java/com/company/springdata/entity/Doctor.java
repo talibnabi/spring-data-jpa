@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @AllArgsConstructor
@@ -52,4 +53,8 @@ public class Doctor {
     @Column(name = "doctor_email_address", nullable = false)
     private String email;
 
+    @ManyToMany(fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL,
+            mappedBy = "doctors")
+    private List<Patient> patients;
 }

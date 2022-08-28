@@ -4,7 +4,10 @@ import com.company.springdata.entity.*;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.transaction.annotation.Transactional;
+
 import java.time.LocalDateTime;
+import java.util.List;
 
 @SpringBootTest
 class BillRepositoryTest {
@@ -18,28 +21,46 @@ class BillRepositoryTest {
                 .labDate(LocalDateTime.of(2001, 12, 1, 2, 3))
                 .build();
         Nurse nurse = Nurse.builder()
-                .nurseFirstName("Anjelina")
-                .nurseLastName("Jolie")
+                .nurseFirstName("Nariman")
+                .nurseLastName("Salman")
                 .nurseAge(19)
-                .nurseMail("anjelina@gmail.com")
+                .nurseMail("nariman@gmail.com")
+                .build();
+        Doctor doctor = Doctor.builder()
+                .firstName("Narmin")
+                .lastName("Narmin")
+                .age(19)
+                .address("Baku")
+                .gender("male")
+                .email("narminnarmin@gmail.com")
                 .build();
         Patient patient = Patient.builder()
-                .firstName("Alisa")
-                .lastName("Aslan")
+                .firstName("Anar")
+                .lastName("Salim")
+                .doctors(List.of(doctor))
                 .laboratory(laboratory)
-                .age(20)
+                .age(19)
                 .disease("cancer")
                 .gender("male")
-                .email("alisa@gmail.com")
+                .email("anar@gmail.com")
                 .nurse(nurse)
                 .build();
         Bill bill = Bill.builder()
                 .patient(patient)
-                .labCharge(300)
-                .doctorCharge(2000)
-                .roomCharge(1000)
-                .dayCount(3)
+                .labCharge(500)
+                .doctorCharge(4000)
+                .roomCharge(2500)
+                .dayCount(9)
                 .build();
         billRepository.save(bill);
     }
+
+    @Test
+    public void getBillByDayCountAndDoctorCharge() {
+        Bill bill = Bill.builder().build();
+        List<Bill> bill1 = billRepository.getBillByDayCountAndDoctorCharge(9, 4000);
+        bill1.forEach(System.out::println);
+    }
+
+
 }
